@@ -1,2 +1,3 @@
 node_modules
 /bin/connection.js
+/config/config.json
