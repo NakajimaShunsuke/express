@@ -1,27 +1,29 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+/* eslint-disable no-unused-vars */
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
-    }
-  }
-  User.init({
-    code: DataTypes.STRING,
-    name: DataTypes.STRING,
-    password: DataTypes.STRING,
-    email: DataTypes.STRING,
-    auth_at: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'User',
-  });
-  return User;
+	class User extends Model {
+		/**
+		 * Helper method for defining associations.
+		 * This method is not a part of Sequelize lifecycle.
+		 * The `models/index` file will call this method automatically.
+		 */
+		static associate(models) {
+			// define association here
+		}
+	}
+	User.init(
+		{
+			code: DataTypes.STRING,
+			name: DataTypes.STRING,
+			email: DataTypes.STRING,
+			password: DataTypes.STRING,
+			authAt: DataTypes.DATE,
+		},
+		{
+			sequelize,
+			modelName: "User",
+		}
+	);
+	return User;
 };
