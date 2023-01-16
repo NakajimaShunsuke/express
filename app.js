@@ -1,4 +1,5 @@
 // const createError = require("http-errors");
+require("dotenv").config();
 const express = require("express");
 const logger = require("morgan");
 const message = require("./bin/message");

@@ -44,10 +44,17 @@ module.exports = {
 		email: "",
 		password: "aaaaaaaaaaaaaaaaaaaaa",
 	},
-	text_cas10: {
+	text_case10: {
 		code: "",
 		name: "",
 		email: "",
 		password: "ああああああ",
+	},
+	text_case11: {
+		code: "nakajima",
+		name: "nakajima",
+		email: "nakajima.shunsuke@gmail.com",
+		password: "eruze9370",
+		passwordConfirmation: "eruze9370",
 	},
 };

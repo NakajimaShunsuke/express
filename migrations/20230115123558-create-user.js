@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 "use strict";
+/** @type {import('sequelize-cli').Migration} */
 module.exports = {
 	async up(queryInterface, Sequelize) {
 		await queryInterface.createTable("Users", {
@@ -15,10 +17,6 @@ module.exports = {
 			},
 			name: {
 				allowNull: false,
-				type: Sequelize.STRING,
-			},
-			password: {
-				allowNull: false,
 				type: Sequelize.STRING(20),
 			},
 			email: {
@@ -26,7 +24,11 @@ module.exports = {
 				unique: true,
 				type: Sequelize.STRING,
 			},
-			auth_at: {
+			password: {
+				allowNull: false,
+				type: Sequelize.STRING,
+			},
+			authAt: {
 				type: Sequelize.DATE,
 			},
 			createdAt: {

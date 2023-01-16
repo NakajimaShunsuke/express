@@ -105,7 +105,7 @@ describe("Test user root path", () => {
 		test("code Alphanumeric operation check", () => {
 			// validationでエラーを吐いた時点で422エラーを返す
 			return supertest_post(
-				test_data.text_cas10,
+				test_data.text_case10,
 				"password",
 				"パスワードは半角英数字のみ入力可能です"
 			);
@@ -119,6 +119,19 @@ describe("Test user root path", () => {
 			);
 		});
 	});
+
+	// describe("insert 200", () => {
+	// 	test("insert 200 check", () => {
+	// 		// validationでエラーを吐いた時点で422エラーを返す
+	// 		return request(app)
+	// 			.post("/users/insert")
+	// 			.send(test_data.text_case11)
+	// 			.then((response) => {
+	// 				console.log(response.body.errors);
+	// 				expect(response.statusCode).toBe(200);
+	// 			});
+	// 	});
+	// });
 });
 
 function supertest_post(params, filter, conditions) {
