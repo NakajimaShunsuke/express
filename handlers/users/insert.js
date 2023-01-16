@@ -69,7 +69,9 @@ module.exports = (req, res) => {
 			"本登録メール",
 			null,
 			"以下のURLをクリックして本登録を完了させてください。\n\n" +
-				verificationUrl
+				"<a>" +
+				verificationUrl +
+				"</a>"
 		);
 		return res.status(200).json({ message: "本登録メール送信" });
 	});
