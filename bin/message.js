@@ -9,7 +9,7 @@ exports.AM001 = function (text_value) {
 };
 
 exports.AM002 = function (text_value, min, max) {
-	return `${text_value}の長は${min}以上、${max}以内です`;
+	return `${text_value}の長さは${min}以上、${max}以内です`;
 };
 
 exports.AM003 = function (text_value) {

@@ -18,7 +18,7 @@ describe("Test user root path", () => {
 			return supertest_post(
 				test_data.text_case2,
 				"code",
-				"ユーザーIDの長は4以上、20以内です"
+				"ユーザーIDの長さは4以上、20以内です"
 			);
 		});
 		test("code max length operation check", () => {
@@ -26,7 +26,7 @@ describe("Test user root path", () => {
 			return supertest_post(
 				test_data.text_case3,
 				"code",
-				"ユーザーIDの長は4以上、20以内です"
+				"ユーザーIDの長さは4以上、20以内です"
 			);
 		});
 		test("code Alphanumeric operation check", () => {
@@ -53,7 +53,7 @@ describe("Test user root path", () => {
 			return supertest_post(
 				test_data.text_case5,
 				"name",
-				"ユーザー名の長は1以上、20以内です"
+				"ユーザー名の長さは1以上、20以内です"
 			);
 		});
 	});
@@ -91,7 +91,7 @@ describe("Test user root path", () => {
 			return supertest_post(
 				test_data.text_case8,
 				"password",
-				"パスワードの長は8以上、20以内です"
+				"パスワードの長さは8以上、20以内です"
 			);
 		});
 		test("password max length operation check", () => {
@@ -99,7 +99,7 @@ describe("Test user root path", () => {
 			return supertest_post(
 				test_data.text_case9,
 				"password",
-				"パスワードの長は8以上、20以内です"
+				"パスワードの長さは8以上、20以内です"
 			);
 		});
 		test("code Alphanumeric operation check", () => {
