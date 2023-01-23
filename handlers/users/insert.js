@@ -4,6 +4,7 @@ const mailer = require("../../module/sendmail");
 const bcrypt = require("bcrypt");
 const crypto = require("crypto");
 const User = require("../../models").User;
+const { Op } = require("sequelize");
 
 module.exports = (req, res) => {
 	// 暗号化につかうキー
@@ -23,7 +24,9 @@ module.exports = (req, res) => {
 	const password = req.body.password;
 
 	User.findOrCreate({
-		where: { email: email },
+		where: {
+			[Op.or]: [{ email: email }, { code: code }],
+		},
 		defaults: {
 			code: code,
 			name: name,
@@ -31,17 +34,27 @@ module.exports = (req, res) => {
 			password: bcrypt.hashSync(password, bcrypt.genSaltSync(8)),
 		},
 	}).then(([user]) => {
-		if (user.emailVerifiedAt) {
+		if (user.authAt) {
+			let error = [];
+			if (user.email == email) {
+				error.push({
+					value: email,
+					msg: "このメールアドレスは既に登録されています。",
+					param: "email",
+					location: "body",
+				});
+			}
+			if (user.code == code) {
+				error.push({
+					value: code,
+					msg: "このアカウントIDは既に登録されています。",
+					param: "code",
+					location: "body",
+				});
+			}
 			// すでに登録されている時
 			return res.status(422).json({
-				errors: [
-					{
-						value: email,
-						msg: "すでに登録されています。",
-						param: "email",
-						location: "body",
-					},
-				],
+				errors: error,
 			});
 		}
 		// 本登録URLを作成

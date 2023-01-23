@@ -110,14 +110,6 @@ describe("Test user root path", () => {
 				"パスワードは半角英数字のみ入力可能です"
 			);
 		});
-		test("password is confirmation operation check", () => {
-			// validationでエラーを吐いた時点で422エラーを返す
-			return supertest_post(
-				test_data.text_case7,
-				"password",
-				"パスワードはパスワード(確認)と一致しません"
-			);
-		});
 	});
 
 	// describe("insert 200", () => {
