@@ -10,10 +10,10 @@ module.exports = {
 				primaryKey: true,
 				type: Sequelize.INTEGER,
 			},
-			code: {
+			userId: {
 				allowNull: false,
 				unique: true,
-				type: Sequelize.STRING(20),
+				type: Sequelize.STRING,
 			},
 			name: {
 				allowNull: false,
@@ -23,13 +23,6 @@ module.exports = {
 				allowNull: false,
 				unique: true,
 				type: Sequelize.STRING,
-			},
-			password: {
-				allowNull: false,
-				type: Sequelize.STRING,
-			},
-			authAt: {
-				type: Sequelize.DATE,
 			},
 			createdAt: {
 				allowNull: false,
