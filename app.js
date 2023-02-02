@@ -15,7 +15,6 @@ app.use(express.urlencoded({ extended: false }));
 
 // ルーティング一覧
 app.use("/", indexRouter);
-app.use("/users", require("./routes/user"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res) {
