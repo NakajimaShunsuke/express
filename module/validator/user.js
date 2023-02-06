@@ -2,6 +2,12 @@ const { check } = require("express-validator");
 const message = require("../../bin/message");
 
 module.exports = [
+	check("userId")
+		.not()
+		.isEmpty()
+		.withMessage(message.AM001("ユーザーID"))
+		.isAlphanumeric()
+		.withMessage(message.AM003("ユーザーID")),
 	check("name")
 		.not()
 		.isEmpty()
